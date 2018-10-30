@@ -1,0 +1,37 @@
+//main: ../index.scss
+
+fieldset {
+  border: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+hr {
+  border: 0;
+}
+
+button, input, textarea, select, li, svg, div {
+  outline: none;
+  border: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    list-style-position: inside;
+  }
+}

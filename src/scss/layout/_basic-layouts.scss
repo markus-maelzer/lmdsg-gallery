@@ -1,0 +1,126 @@
+//main: ../index.scss
+
+.nop {
+  padding: 0 !important;
+}
+.nopr {
+  padding-right: 0 !important;
+}
+.nopl {
+  padding-left: 0 !important;
+}
+.nopb {
+  padding-bottom: 0 !important;
+}
+.nopt {
+  padding-top: 0 !important;
+}
+
+.nom {
+  margin: 0 !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+
+  &-small {
+    @extend .container;
+    max-width: 320px;
+  }
+  &-middle-small {
+    @extend .container;
+    max-width: 500px;
+  }
+  &-middle {
+    @extend .container;
+    max-width: 680px;
+  }
+  &-middle-big {
+    @extend .container;
+    max-width: 860px;
+  }
+  &-big {
+    @extend .container;
+    max-width: 1600px;
+  }
+  &-fullWidth {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.fullScreenSection {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.fixed {
+  position: fixed;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+.fw {
+  width: 100%;
+}
+.hw {
+  width: 50%;
+}
+.hh {
+  height: 50%;
+}
+.fh {
+  min-height: 100%;
+}
+.fh-v {
+  height: 100vh;
+}
+
+.overlay {
+  top:0;
+  left:0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-img-center  {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.xy-hidden {
+  overflow: hidden;
+}
+.y-hidden {
+  overflow-y: hidden;
+}
+
+.ca {
+  position: absolute;
+  &-all {
+    @extend .ca;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+  }
+  &-y {
+    @extend .ca;
+    top: 50%;
+    @include translateY(-50%);
+  }
+  &-x {
+    @extend .ca;
+    left: 50%;
+    @include translateX(-50%);
+  }
+}

@@ -1,0 +1,167 @@
+// main: ../index.scss
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation:    $animations;
+  -moz-animation-fill-mode:    forwards;
+  animation:         $animations;
+  animation-fill-mode:         forwards;
+
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+//main:../main.scss
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+
+  // -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin prefixW($property, $value) {
+  -webkit-#{$property}: #{$value};
+  // -moz-#{$property}: #{$value};
+  // -ms-#{$property}: #{$value};
+  // -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin prefixWebkitMs($property, $value) {
+  -webkit-#{$property}: #{$value};
+  // -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  // -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin user-select($vals: none) {
+  @include prefix('user-select', $vals);
+}
+
+@mixin background-clip($val) {
+  @include prefix(background-clip, $val);
+}
+// ROTATE
+@mixin rotate($deg: 0) {
+  transform: rotate($deg + deg);
+}
+
+@mixin rotateX($deg: 0) {
+  transform: rotateX($deg + deg);
+}
+
+@mixin rotateY($deg: 0) {
+  transform: rotateY($deg + deg);
+}
+
+@mixin rotateZ($deg: 0) {
+  transform: rotateZ($deg + deg);
+}
+
+// SCALE
+@mixin scale($scale: 1) {
+  transform: scale($scale);
+}
+
+@mixin scaleX($scaleX: 1) {
+  transform: scaleX($scaleX);
+}
+
+@mixin scaleY($scaleY: 1) {
+  transform: scaleY($scaleY);
+}
+
+@mixin scaleXY($scaleX: 0, $scaleY: 1) {
+  transform: scale($scaleX, $scaleY);
+}
+
+// SKEW
+@mixin skew($x: 0, $y: 0) {
+  transform: skew($x, $y);
+}
+
+@mixin skewX($x: 0) {
+  transform: skewX($x);
+}
+
+@mixin skewY($y: 0) {
+  transform: skewY($y);
+}
+
+// TRANSLATE
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
+  transform: translate3d($x, $y, $z);
+}
+
+@mixin translate($x: 0, $y: 0) {
+  transform: translate($x, $y);
+}
+
+@mixin translateX($x: 0) {
+  transform: translateX($x);
+}
+
+@mixin translateY($y: 0) {
+  transform: translateY($y);
+}
+
+// TRANSITION
+@mixin transition($vals: all 0.3s ease) {
+  transition: $vals;
+}
+
+// TRANSFORM ORIGIN
+@mixin transform-origin($vals: 50% 50%) {
+  @include prefix('transform-origin', $vals);
+}
+
+// TRANSFORM STYLE
+@mixin transform-style($vals: flat) {
+  @include prefix('transform-style', $vals);
+}
+
+// PERSPECTIVE
+@mixin perspective($vals) {
+  @include prefix('perspective', $vals);
+}
+
+// ANIMATION
+@mixin animation($content) {
+  @include prefix('animation', $content);
+}
+
+@mixin centered() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate(-50%, -50%);
+}
+
+@mixin selection {
+  ::-moz-selection { @content; }
+  ::selection { @content; }
+}

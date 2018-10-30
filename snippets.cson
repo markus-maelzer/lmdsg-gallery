@@ -1,0 +1,125 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+
+# HTML CUSTOM SNIPPETS
+'.text.html.basic':
+# html Grundgerüst
+  'Html Base':
+    'prefix': 'html'
+    'body': """
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>$1</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+      </head>
+      <body>
+        $2
+
+      <script src="js/script.js"></script>
+      </body>
+      </html>
+      """
+
+  'stylesheet link':
+    'prefix': 'Link'
+    'body': '<link rel="stylesheet" type="text/css" href="css/$1">'
+
+
+#stylesheet link
+'.source.css':
+  'Link To Index':
+    'prefix': 'link'
+    'body': '//main: ../index.scss'
+
+  '!important':
+    'prefix': '!'
+    'body': '!important${1:;}$0'
+
+
+#REACT ALL THE WAY
+'.source.js.jsx':
+
+  #React Component
+  'React Component':
+    'prefix': 'rcc'
+    'body': """
+      import React, { Component } from 'react';
+
+      export default class $1 extends Component {
+        render() {
+          return (
+            $4
+          );
+        }
+      }
+    """
+
+  'React Redux Component':
+    'prefix': 'rdc'
+    'body': """
+      import React, { Component } from 'react';
+      import { connect } from 'react-redux';
+
+      class $1 extends Component {
+        render() {
+          return (
+            $4
+          );
+        }
+      }
+
+      const mapStateToProps = ($2) => {
+        return {
+          $3
+        }
+      }
+
+      export default connect(
+        mapStateToProps,
+        {  }
+      );
+    """
+
+  #dumb React Component
+  'React DUMB Component':
+    'prefix': 'rcd'
+    'body': """
+      import React from 'react';
+
+      const $1 = () => (
+        $2
+      );
+    """
+
+  'Import':
+    'prefix': 'i';
+    'body': 'import $1 from \'$2\';'
+
+  'Standard Reducer':
+    'prefix': 'reducer'
+    'body': """
+
+    """

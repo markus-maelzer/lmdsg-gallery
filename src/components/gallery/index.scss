@@ -1,0 +1,45 @@
+$gridItemBg: #f1f1f1;
+$color: #eb1851;
+
+body {
+  background-color: #e8e8e8;
+}
+
+#masonry-layout {
+  margin: 0 auto;
+}
+.gallery {
+  &__container {
+    padding: 80px 0;
+  }
+
+
+  &__item {
+    padding: 30px;
+    width: 260px;
+    cursor: pointer;
+    // margin: 20px 40px;
+
+    &-anim {
+    }
+
+    &-bg {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $gridItemBg;
+    }
+
+    &-content {
+      padding: 16px;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-img {
+      transform-origin: center;
+      width: 100%;
+    }
+  }
+}
