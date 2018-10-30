@@ -1,8 +1,9 @@
 $gridItemBg: #f1f1f1;
 $color: #eb1851;
+$bg: #e8e8e8;
 
 body {
-  background-color: #e8e8e8;
+  background-color: $bg;
 }
 
 #masonry-layout {
@@ -10,6 +11,9 @@ body {
 }
 .gallery {
   &__container {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
     padding: 80px 0;
   }
 
@@ -20,26 +24,89 @@ body {
     cursor: pointer;
     // margin: 20px 40px;
 
-    &-anim {
+    &-wrapper {
+      width: 100%;
+      height: 100%;
     }
 
     &-bg {
-      content: "";
+      transition: 0.6s ease-in-out 0.55s;
+      top: 0;
+      left: 0;
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: $gridItemBg;
+      // background-color: $gridItemBg;
     }
 
     &-content {
-      padding: 16px;
       width: 100%;
       height: 100%;
+      margin: 0 auto;
+      transition: 0.4s ease;
     }
 
     &-img {
+      top: 0;
+      left: 0;
       transform-origin: center;
-      width: 100%;
+      width:185px;
+      transition:
+        transform 0.5s ease 0.55s,
+        opacity 0.2s ease;
+    }
+
+    &.open {
+      .gallery__item {
+        &-img {
+          // opacity: 0;
+        }
+      }
+    }
+
+    &.open, &.anim {
+      z-index: 100;
+
+      .gallery__item {
+        &-img {
+          position: absolute;
+        }
+        &-content {
+          width: 80%;
+        }
+      }
+    }
+
+    &.anim {
+      .gallery__item {
+        &-img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    visibility: hidden;
+    opacity: 0;
+    background-color: $bg;
+    width: 100%;
+    transition: 0.25s ease;
+
+    img {
+      height: calc(100vh - 60px);
+      width: auto;
+    }
+
+    &.open:not(.anim) {
+      z-index: 99;
+      visibility: visible;
+      opacity: 1;
     }
   }
 }

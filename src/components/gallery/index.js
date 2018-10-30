@@ -54,48 +54,6 @@ export default class Gallery extends Component {
     });
   }
 
-  handleOnClick = (id) => {
-    const { gallery, activeItem } = this.state;
-    if(!activeItem) {
-      this.setState({
-        gallery: {
-          ...gallery,
-          [id]: {
-            ...gallery[id],
-            active: true,
-          }
-        },
-        activeItem: id,
-      })
-    } else if (id === activeItem) {
-      this.setState({
-        gallery: {
-          ...gallery,
-          [id]: {
-            ...gallery[id],
-            active: !gallery[id].active,
-          }
-        }
-      })
-    } else {
-      this.setState({
-        gallery: {
-          ...gallery,
-          [id]: {
-            ...gallery[id],
-            active: true
-          },
-          [activeItem]: {
-            ...gallery[activeItem],
-            active: false
-          }
-        },
-        activeItem: id,
-      })
-    }
-  }
-
-
 
   render() {
     const { gallery } = this.state;
@@ -132,7 +90,6 @@ export default class Gallery extends Component {
               id={id}
               src={src}
               active={active}
-              onClick={this.handleOnClick}
             >
               {children}
             </GalleryItem>
